@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:600,700|Josefin+Slab:300,500,500italic,600');
+
+
+/* Set color for the background of the whole page */
+body {
+  background-color: #1A2335;
+  color:#F0E2CE;
+  font-family: "Josefin Slab", serif;
+  font-weight: 500;
+}
+
+/* Set color for the background of the header */
+header {
+  background-color: #F0E2CE;
+  color: #E8604D;
+  /* background-image: linear-gradient(#CE5538, #1D1D1D); */
+  line-height: 3;
+  font-size: 24px;
+  border-left: 5px solid #F0E2CE;
+  padding-left: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+}
+
+li {
+  color: #F0E2CE;
+  font-size: 23px;
+  margin: 10px;
+}
+
+/* Set accent colors for links and/or headings */
+a {
+  color: #FF8B7C;
+}
+.italics {
+  font-style: italic;
+  font-size: 20px;
+}
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
+
+h2 {
+  color: #F0E2CE;
+  border-left: 5px solid #F0E2CE;
+  padding-left: 10px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+th {
+  text-align: left; 
+  padding: 5px;
+  padding-right: 25px;
+  font-size: 20px;
+}
+
+td {
+  font-size: 20px;
+  font-style: italic;
+}
+
+svg.icon {
+  display: inline;
+  height: 1.5em;
+  width: 1.5em;
+  vertical-align: bottom;
+  fill: #F0E2CE;
+}
