@@ -11,15 +11,20 @@ body {
 
 /* Set color for the background of the header */
 header {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
   background-color: #F0E2CE;
   color: #E8604D;
-  /* background-image: linear-gradient(#CE5538, #1D1D1D); */
-  line-height: 3;
-  font-size: 24px;
+  font-size: 20px;
   border-left: 5px solid #F0E2CE;
-  padding-left: 10px;
+  padding-right: 2rem;
+  padding-left: 2rem;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 700;
+  justify-content: space-between;
+  /* gap: 1rem; */
+  margin-bottom: 2em;
 }
 
 li {
@@ -41,6 +46,10 @@ a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
 
+h1 {
+  align-self: center;
+  line-height: 0;
+}
 
 h2 {
   color: #F0E2CE;
