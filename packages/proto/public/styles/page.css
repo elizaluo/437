@@ -1,52 +1,52 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:600,700|Josefin+Slab:300,500,500italic,600');
+@import 'tokens.css';
 
-
-/* Set color for the background of the whole page */
 body {
-  background-color: #1A2335;
-  color:#F0E2CE;
-  font-family: "Josefin Slab", serif;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  font-family: 'Josefin Slab', serif;
   font-weight: 500;
 }
 
-/* Set color for the background of the header */
 header {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  background-color: #F0E2CE;
+  background-color: var(--primary-color);
   color: #E8604D;
   font-size: 20px;
-  border-left: 5px solid #F0E2CE;
+  border-left: 5px solid var(--header-border-color);
   padding-right: 2rem;
   padding-left: 2rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
   justify-content: space-between;
-  /* gap: 1rem; */
   margin-bottom: 2em;
 }
 
 li {
-  color: #F0E2CE;
+  color: var(--primary-color);
   font-size: 23px;
   margin: 10px;
 }
 
-/* Set accent colors for links and/or headings */
 a {
-  color: #FF8B7C;
+  color: var(--accent-color);
 }
+
 .italics {
   font-style: italic;
   font-size: 20px;
 }
-a:link { text-decoration: none; }
-a:visited { text-decoration: none; }
-a:hover { text-decoration: none; }
-a:active { text-decoration: none; }
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
 
 h1 {
   align-self: center;
@@ -54,8 +54,8 @@ h1 {
 }
 
 h2 {
-  color: #F0E2CE;
-  border-left: 5px solid #F0E2CE;
+  color: var(--primary-color);
+  border-left: 5px solid var(--header-border-color);
   padding-left: 10px;
   font-size: 28px;
   font-weight: 600;
@@ -67,7 +67,7 @@ h3 {
 }
 
 th {
-  text-align: left; 
+  text-align: left;
   padding: 5px;
   padding-right: 25px;
   font-size: 20px;
@@ -78,12 +78,17 @@ td {
   font-style: italic;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 svg.icon {
   display: inline;
   height: 1.5em;
   width: 1.5em;
   vertical-align: bottom;
-  fill: #F0E2CE;
+  fill: var(--primary-color);
 }
 
 span.profile {
@@ -93,20 +98,4 @@ span.profile {
 
 nav {
   flex-basis: 30%;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px; 
-}
-
-.grid-item {
-  border: 1px solid #ccc;
-  padding: 20px;
-  text-align: center;
-}
-
-img {
-  padding: 1rem;
 }
