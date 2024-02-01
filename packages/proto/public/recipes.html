@@ -1,14 +1,41 @@
-<nav>
-    <a href="index.html">Home</a> > Recipes
-</nav>
-
-<header>
-    <h1>Recipes</h1>
-    <nav>
-        <ul>
-            <li><a href="sample_recipe.html">Sample Recipe 1</a></li>
-            <li><a href="sample_recipe.html">Sample Recipe 2</a></li>
-            <li><a href="sample_recipe.html">Sample Recipe 3</a></li>
-        </ul>
-    </nav>
-</header>
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/styles/page.css" />
+    <link rel="stylesheet" href="/styles/grids.css" />
+  </head>
+  <body>
+    <article>
+        <header>
+            <nav>
+                <a href="index.html">Home</a> > Recipes
+            </nav>
+            <h1>Recipes</h1>
+            <span class="profile"><svg class="icon" style="fill:#E8604D; height: 1.5em; width: 1.5em">
+                <use href="/icons/shopping.svg#icon-profile" />
+            </svg></span>
+        </header>
+        <!-- <section>
+            <ul>
+                <li><a href="sample_recipe.html">Sample Recipe 1</a></li>
+                <li><a href="sample_recipe.html">Sample Recipe 2</a></li>
+                <li><a href="sample_recipe.html">Sample Recipe 3</a></li>
+            </ul>
+        </section> -->
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="images/chickensoup.jpg"/>
+                <a href="sample_recipe.html">Sample Recipe 1</a>
+            </div>
+            <div class="grid-item">
+                <img src="images/chickensoup.jpg"/>
+                <a href="sample_recipe.html">Sample Recipe 2</a>
+            </div>
+            <div class="grid-item">
+                <img src="images/chickensoup.jpg"/>
+                <a href="sample_recipe.html">Sample Recipe 3</a>
+            </div>
+        </div>
+          
+    </article>
+</html>
