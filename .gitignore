@@ -1,5 +1,6 @@
 
 .DS_Store
+node_modules
 node_modules/.bin/he
 node_modules/.bin/http-server
 node_modules/.bin/mime
