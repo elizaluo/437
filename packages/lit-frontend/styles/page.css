@@ -107,6 +107,7 @@ span.profile {
 }
 
 nav {
+  color: var(--darker-accent-color);
   flex-basis: 30%;
 }
 

@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/page.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <script type="module" src="/src/drop-down.ts"></script>
+    <script type="module" src="/src/user-panel.ts"></script>
+    <script type="module" src="/src/toggle-switch.ts"></script>
   </head>
   <body>
     <article>
@@ -9,9 +14,20 @@
         <nav><a href="index.html">Home</a> > Shopping List</nav>
         <h1>Shopping List</h1>
         <span class="profile">
-          <svg class="icon" style="fill: #e8604d; height: 1.5em; width: 1.5em">
+          <!-- <svg class="icon" style="fill: #e8604d; height: 1.5em; width: 1.5em">
             <use href="/icons/shopping.svg#icon-profile" />
-          </svg>
+          </svg> -->
+          <drop-down align="right">
+            <svg
+              class="icon"
+              style="fill: var(--darker-accent-color); height: 1.5em; width: 1.5em"
+            >
+              <use href="/icons/shopping.svg#icon-profile" />
+            </svg>
+            <user-panel slot="menu">
+              <span slot="name">Eliza Luo</span>
+            </user-panel>
+          </drop-down>
         </span>
       </header>
       <section class="checklist">
