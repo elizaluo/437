@@ -58,6 +58,7 @@ a {
   }
 
 h1 {
+  color: var(--darker-accent-color);
   align-self: center;
   line-height: 0;
 }

@@ -8,3 +8,11 @@
     --color-border-control: #e8604d;
     --time-transition-control: black;
   }
+
+  body.light-mode {
+    --background-color: #F0E2CE;
+    --primary-color: #e8604d;
+    --accent-color: #1A2335;
+    --darker-accent-color: #F0E2CE;
+    --header-border-color: #e8604d;
+  }
