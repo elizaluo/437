@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/page.css" />
     <script type="module" src="/src/drop-down.ts"></script>
+    <script type="module" src="/src/user-panel.ts"></script>
+    <script type="module" src="/src/toggle-switch.ts"></script>
   </head>
   <body>
     <article>
@@ -16,6 +18,8 @@
               vertical-align: middle;
               padding-bottom: 10px;
               padding-right: 15px;
+              width: 2em;
+              height: 2em;
             "
           >
             <use href="/icons/shopping.svg#icon-logo" />
@@ -23,9 +27,20 @@
           MY KITCHEN
         </h1>
         <span class="profile">
-          <svg class="icon" style="fill: #e8604d; height: 1.5em; width: 1.5em">
+          <!-- <svg class="icon" style="fill: #e8604d; height: 1.5em; width: 1.5em">
             <use href="/icons/shopping.svg#icon-profile" />
-          </svg>
+          </svg> -->
+          <drop-down align="right">
+            <svg class="icon" style="fill: #e8604d; height: 1.5em; width: 1.5em">
+              <use href="/icons/shopping.svg#icon-profile" />
+            </svg>
+            <user-panel
+              slot="menu">
+              <span slot="name">Eliza Luo</span>
+              <span slot="menu">Profile</span>
+              <span slot="menu">Settings</span>
+            </user-panel>
+          </drop-down>
         </span>
       </header>
       <section class="main-nav">
