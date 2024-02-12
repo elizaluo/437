@@ -63,6 +63,7 @@ h1 {
   line-height: 0;
 }
 
+
 h2 {
   color: var(--primary-color);
   border-left: 5px solid var(--header-border-color);

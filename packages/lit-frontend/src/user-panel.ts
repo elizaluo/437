@@ -13,11 +13,15 @@ export class UserPanelElement extends LitElement {
       <ul>
         <li class="header">
           <img src=${this.avatar} />
-          <h1><slot name="name">Your Name</slot></h1>
+
+          <h1>
+            <a href="profile.html"><slot name="name">Your Name</slot></a>
+          </h1>
         </li>
+
         <li>
           <toggle-switch @change=${this._toggleLightMode}>
-            Light Mode  
+            Light Mode
           </toggle-switch>
         </li>
         <!-- <li>
@@ -30,7 +34,6 @@ export class UserPanelElement extends LitElement {
           </preset-buttons>
         </li> -->
         <slot></slot>
-        <li><span slot="profile">Profile</span></li>
         <li><span slot="settings">Settings</span></li>
         <li>
           <slot name="logout">Sign Out</slot>
@@ -84,6 +87,10 @@ export class UserPanelElement extends LitElement {
       line-height: var(--font-line-height-display);
       white-space: normal;
       text-align: right;
+    }
+    .header h1 a {
+      text-decoration: none;
+      color: inherit;
     }
   `;
 

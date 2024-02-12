@@ -1,0 +1,18 @@
+@import 'tokens.css';
+
+input {
+    margin: 1em;
+    padding: .5em;
+}
+
+button {
+    margin-top: 2em;
+    margin-left: 1.5em;
+    padding: .5em;
+    
+}
+
+label {
+    font-size: 20px;
+    padding-left: 1em;
+}
