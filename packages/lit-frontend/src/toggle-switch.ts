@@ -41,8 +41,8 @@ export class ToggleSwitchElement extends LitElement {
       margin: 0.25em;
     }
     .slider:has(input:checked) {
-      background-color: var(--darker-accent-color);
-      border: 2px solid var(--accent-color);
+      background-color: var(--color-background-control);
+      border: 2px solid var(--color-border-control);
     }
     input {
       appearance: none;
