@@ -15,7 +15,7 @@ export class UserPanelElement extends LitElement {
           <img src=${this.avatar} />
 
           <h1>
-            <a href="profile.html"><slot name="name">Your Name</slot></a>
+            <a href="/app/profile/index.html"><slot name="name">Your Name</slot></a>
           </h1>
         </li>
 
