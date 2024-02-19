@@ -5,9 +5,9 @@
     --darker-accent-color: #e8604d;
     --header-border-color: #F0E2CE;
     --color-background-control: #e8604d;
-    /* --color-foreground-control: #1A2335; */
+    --color-foreground-control: #1A2335;
     --color-border-control: white;
-    --time-transition-control: black;
+    --time-transition-control: #F0E2CE;
   }
 
   body.light-mode {
@@ -18,4 +18,5 @@
     --header-border-color: #e8604d;
     --color-background-control: #F0E2CE;
     --color-border-control: #e8604d;
+    --time-transition-control: #e8604d;
   }

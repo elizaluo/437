@@ -1,10 +1,10 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
-import { Profile } from "./models/profile";
+import { Profile } from "./models/profile.ts";
 import { serverPath } from "./rest.ts";
 
-@customElement("user-profile")
-export class UserProfileElement extends LitElement {
+@customElement("view-profile")
+export class ViewProfileElement extends LitElement {
   @property()
   path: string = "";
 
@@ -41,22 +41,69 @@ export class UserProfileElement extends LitElement {
   render() {
     const { userid, name } = this.profile || {};
     return html`
-      <h2>Account Information</h2>
-      <div class="account-details">
-        <div class="account-field">
-          <label for="name">Name:</label>
-          <input type="text" id="name" value=${name} disabled />
-        </div>
-        <div class="account-field">
-          <label for="user-id">User ID:</label>
-          <input type="text" id="user-id" value=${userid} disabled />
-        </div>
-      </div>
-      <button>Edit Account</button>
+      <section>
+        <h1>${name}'s Account</h1>
+        <dl>
+          <dt><h2>Name</h2></dt>
+          <dd><h3>${name}</h3></dd>
+          <dt><h2>Username</h2></dt>
+          <dd><h3>${userid}</h3></dd>
+        </dl>
+      </section>
     `;
   }
 
   static styles = css`
+    section {
+      margin: 2em;
+    }
+    h1 {
+      font-size: 32px;
+    }
+    h2 {
+      color: var(--primary-color);
+      border-left: 5px solid var(--header-border-color);
+      padding-left: 10px;
+      font-size: 28px;
+      font-weight: 600;
+    }
+    dl {
+      border: 1px solid var(--header-border-color);
+      padding: 1em;
+    }
+    dd {
+      color: var(--accent-color);
+    }
+  `;
+}
+
+@customElement("edit-profile")
+export class EditProfileElement extends ViewProfileElement {
+  render() {
+    const { userid, name } = this.profile || {};
+
+    return html`
+      <section>
+        <h2>Edit Profile</h2>
+        <form @submit=${this._handleSubmit}>
+          <div class="form-group">
+            <label for="userid">Username</label>
+            <input name="userid" .value=${userid} disabled />
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input name="name" .value=${name} />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    `;
+  }
+
+  static styles = css`
+    section {
+      margin: 2em;
+    }
     h2 {
       color: var(--primary-color);
       border-left: 5px solid var(--header-border-color);
@@ -78,4 +125,34 @@ export class UserProfileElement extends LitElement {
       padding-left: 1em;
     }
   `;
+
+  _handleSubmit(ev: Event) {
+    ev.preventDefault(); // prevent browser from submitting form data itself
+
+    const target = ev.target as HTMLFormElement;
+    const formdata = new FormData(target);
+    const entries = Array.from(formdata.entries()).map(([k, v]) =>
+      v === "" ? [k] : [k, v]
+    );
+    const json = Object.fromEntries(entries);
+    console.log(json);
+
+    this._putData(json);
+  }
+
+  _putData(json: Profile) {
+    fetch(serverPath(this.path), {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(json),
+    })
+      .then((response) => {
+        if (response.status === 200) return response.json();
+        else return null;
+      })
+      .then((json: unknown) => {
+        if (json) this.profile = json as Profile;
+      })
+      .catch((err) => console.log("Failed to PUT form data", err));
+  }
 }
