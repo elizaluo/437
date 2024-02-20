@@ -90,8 +90,10 @@ td {
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+  object-fit: cover;
+  max-width: 20em;
+  height: 15em;
+  border-radius: 8px;
 }
 
 svg.icon {
