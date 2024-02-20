@@ -37,14 +37,7 @@
           </drop-down>
         </span>
       </header>
-      <!-- <section>
-            <ul>
-                <li><a href="sample_recipe.html">Sample Recipe 1</a></li>
-                <li><a href="sample_recipe.html">Sample Recipe 2</a></li>
-                <li><a href="sample_recipe.html">Sample Recipe 3</a></li>
-            </ul>
-        </section> -->
-      <div class="grid-container">
+      <!-- <div class="grid-container">
         <div class="grid-item">
           <a href="sample_recipe.html">
             <recipe-card class="recipe-card">
@@ -74,28 +67,31 @@
               <span slot="time">30 minutes</span>
             </recipe-card>
           </a>
-        </div>
+        </div> -->
+      <item-list></item-list>
     </article>
-    <!-- <script>
+    <script>
       const items = [
         {
-          name: "Chicken Soup",
-          image: "/images/artist_odesza.jpeg",
+          name: "Quinoa Salad",
+          image: "/images/quinoa.jpeg",
+          mealType: "Appetizer",
+          time: "30 minutes",
+        },
+        {
+          name: "Spaghetti & Meatballs",
+          image: "/images/meatballs.jpg",
+          mealType: "Entree",
+          time: "1 hour",
         },
         {
           name: "Chicken Soup",
           image: "/images/chickensoup.jpg",
-        },
-        {
-          name: "Chicken Soup",
-          image: "/images/chickensoup.jpg",
-        },
-        {
-          name: "Chicken Soup",
-          image: "/images/chickensoup.jpg",
+          mealType: "Entree",
+          time: "2 hours",
         },
       ];
       document.querySelector("item-list").items = items;
-    </script> -->
+    </script>
   </body>
 </html>

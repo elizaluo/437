@@ -7,11 +7,13 @@ export class RecipeCard extends LitElement {
     name: string = "";
     
     @property({ type: String})
-    recipePicPath: string = "";
+    image: string = "";
     
     @property({ type: String})
     mealType: string = "";
 
+    @property({ type: String})
+    time: string = "";
     
     render() {
         return html`
@@ -30,17 +32,14 @@ export class RecipeCard extends LitElement {
 }
 
 static styles = css`
-    :host {
-        display: block;
-        height: 100%;
-        width: auto;
-        border: 1px solid #f0f0f0;
-        border-radius: 8px;
-        padding: 20px;
-    }
-    label {
-        cursor: pointer;
-    }
+    // :host {
+    //     display: block;
+    //     height: 100%;
+    //     width: auto;
+    //     border: 1px solid black;
+    //     border-radius: 8px;
+    //     padding: 20px;
+    // }
     `;
 
 }

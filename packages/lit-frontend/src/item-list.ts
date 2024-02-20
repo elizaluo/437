@@ -1,70 +1,115 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import './recipe-card';
+import "./recipe-card";
 
 @customElement("item-list")
 class ItemList extends LitElement {
-    @property({ type: Array})
-    items = [];
+  @property({ type: Array })
+  items = [];
 
-    sort() {
-        this.items.sort((a, b) => a.name.localeCompare(b.name));
-        this.requestUpdate();
+  sortAlphabetically() {
+    this.items.sort((a, b) => a.name.localeCompare(b.name));
+    this.requestUpdate();
+  }
+
+  renderRecipe(item) {
+    return html`
+      <div class="grid-item">
+        <a href="sample_recipe.html">
+          <recipe-card class="recipe-card">
+            <img slot="recipeImage" src="${item.image}" />
+            <span slot="recipeName">${item.name}</span>
+            <span slot="mealType">${item.mealType}</span>
+            <span slot="time">${item.time}</span>
+          </recipe-card>
+        </a>
+      </div>
+    `;
+  }
+
+  render() {
+    return html`
+      <section>
+        <div class="sort">
+          <button @click="${this.sortAlphabetically}">Sort by Name</button>
+        </div>
+        <div class="grid-container">
+          ${this.items.map((item) => this.renderRecipe(item))}
+        </div>
+      </section>
+
+      <section></section>
+    `;
+  }
+
+  static styles = css`
+    a {
+      color: var(--accent-color);
     }
 
-    renderRecipe(item) {
-        return html`<a href="sample_recipe.html">
-                <recipe-card class="recipe-card">
-                    <img slot="recipeImage" src="${item.image}"/>
-                    <span slot="recipeName">${item.name}</span> 
-                    <span slot="mealType">${item.mealType}</span>
-                </recipe-card>
-            </a> `
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      text-decoration: none;
     }
 
-    render() {
-        return html`
-        <section>
-            <button @click="${this.sort}">Sort</button>
-            <div class="recipes">
-            ${this.items.map((item) => this.renderRecipe(item))}
-            </div>
-        </section>`
-    }
-
-    static styles = css`
-    .recipes{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 0 4 rem;
-        align-items: baseline;
-        align-content: space-around;
-        justify-content: space-evenly;
-        column-gap: 1rem;
-    }
-    .recipe{
-        display: block;
-        height: 20vh;
-        width: auto;
-    }
-    
-    .recipe-card{
-        border: 3px solid var(--color-accent);
-        text-align: center;
-        color: white;
-        margin: 4px 2px;
-        padding: 15px 32px;
-        font-size: var(--font-size-small);
-        cursor: pointer;
-        background-color: rgba(255, 255, 255, 0.25);
-        border-radius: 10px 10px 10px 10px;
-        font-family: var(--font-family-headers);
-    
+    .recipe-card {
+      display: block;
+      height: 100%;
+      width: auto;
+      //   border: 1px solid #f0f0f0;
+      border-radius: 8px;
+      padding: 20px;
+      border: 3px solid var(--color-accent);
+      text-align: center;
+      color: var(--white-black);
+      margin: 4px 2px;
+      cursor: pointer;
+      background-color: var(--card-background);
     }
 
     img {
-        width: 100%;
+      object-fit: cover;
+      max-width: 20em;
+      height: 15em;
+      border-radius: 8px;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 10px;
+      grid-gap: 2rem;
+      padding: 1rem 4rem;
+      overflow: wrap;
     }
 
-    `
+    .grid-item {
+      text-align: center;
+      max-width: 100%;
+    }
+    .grid-item > a {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+      font-size: 20px;
+    }
+    .sort {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0em 4rem;
+    }
+    .sort > button {
+      font-size: 1em;
+      padding: 0.25em 1em;
+      border: 2px solid var(--white-black);
+      border-radius: 3px;
+      background-color: var(--background-color);
+      color: var(--white-black);
+      cursor: pointer;
+    }
+    .sort > button:hover {
+      background-color: var(--card-background);
+    }
+  `;
 }
