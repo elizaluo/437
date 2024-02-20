@@ -2,7 +2,7 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 @customElement("recipe-card")
-class RecipeCard extends LitElement {
+export class RecipeCard extends LitElement {
     @property({ type: String})
     name: string = "";
     
@@ -23,6 +23,8 @@ class RecipeCard extends LitElement {
                 <slot name="recipeName">Recipe Name</slot>
             </h3>
             <slot name="mealType">Meal Type</slot>
+            - 
+            <slot name="time" style="font-style: italic">Time</slot>
         </div>
     `;
 }
@@ -36,7 +38,6 @@ static styles = css`
         border-radius: 8px;
         padding: 20px;
     }
-
     label {
         cursor: pointer;
     }
