@@ -1,59 +1,97 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/page.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/grids.css" />
     <script type="module" src="/src/drop-down.ts"></script>
     <script type="module" src="/src/user-panel.ts"></script>
     <script type="module" src="/src/toggle-switch.ts"></script>
-    <link rel="stylesheet" href="/styles/grids.css" />
+    <script type="module" src="/src/item-list.ts"></script>
+    <script type="module" src="/src/recipe-card.ts"></script>
   </head>
   <body>
     <article>
-        <header>
-            <nav>
-                <a href="index.html">Home</a> > Recipes
-            </nav>
-            <h1>Recipes</h1>
-            <span class="profile">
-                <!-- <svg class="icon" style="fill: #e8604d; height: 1.5em; width: 1.5em">
+      <header>
+        <nav><a href="index.html">Home</a> > Recipes</nav>
+        <h1>Recipes</h1>
+        <span class="profile">
+          <!-- <svg class="icon" style="fill: #e8604d; height: 1.5em; width: 1.5em">
                   <use href="/icons/shopping.svg#icon-profile" />
                 </svg> -->
-                <drop-down align="right">
-                  <svg
-                    class="icon"
-                    style="fill: var(--darker-accent-color); height: 1.5em; width: 1.5em"
-                  >
-                    <use href="/icons/shopping.svg#icon-profile" />
-                  </svg>
-                  <user-panel slot="menu">
-                    <span slot="name">Eliza Luo</span>
-                  </user-panel>
-                </drop-down>
-              </span>
-        </header>
-        <!-- <section>
-            <ul>
-                <li><a href="sample_recipe.html">Sample Recipe 1</a></li>
-                <li><a href="sample_recipe.html">Sample Recipe 2</a></li>
-                <li><a href="sample_recipe.html">Sample Recipe 3</a></li>
-            </ul>
-        </section> -->
-        <div class="grid-container">
-            <div class="grid-item">
-                <img src="/images/chickensoup.jpg"/>
-                <a href="sample_recipe.html">Sample Recipe 1</a>
-            </div>
-            <div class="grid-item">
-                <img src="/images/chickensoup.jpg"/>
-                <a href="sample_recipe.html">Sample Recipe 2</a>
-            </div>
-            <div class="grid-item">
-                <img src="/images/chickensoup.jpg"/>
-                <a href="sample_recipe.html">Sample Recipe 3</a>
-            </div>
+          <drop-down align="right">
+            <svg
+              class="icon"
+              style="
+                fill: var(--darker-accent-color);
+                height: 1.5em;
+                width: 1.5em;
+              "
+            >
+              <use href="/icons/shopping.svg#icon-profile" />
+            </svg>
+            <user-panel slot="menu">
+              <span slot="name">Eliza Luo</span>
+            </user-panel>
+          </drop-down>
+        </span>
+      </header>
+      <!-- <div class="grid-container">
+        <div class="grid-item">
+          <a href="sample_recipe.html">
+            <recipe-card class="recipe-card">
+              <img slot="recipeImage" src="/images/chickensoup.jpg" />
+              <span slot="recipeName">Chicken Soup</span>
+              <span slot="mealType">Entree</span>
+              <span slot="time">2 hours</span>
+            </recipe-card>
+          </a>
         </div>
-          
+        <div class="grid-item">
+          <a href="sample_recipe.html">
+            <recipe-card class="recipe-card">
+              <img slot="recipeImage" src="/images/meatballs.jpg" />
+              <span slot="recipeName">Spaghetti & Meatballs</span>
+              <span slot="mealType">Entree</span>
+              <span slot="time">1 hour</span>
+            </recipe-card>
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="sample_recipe.html">
+            <recipe-card class="recipe-card">
+              <img slot="recipeImage" src="/images/quinoa.jpeg" />
+              <span slot="recipeName">Quinoa Salad</span>
+              <span slot="mealType">Appetizer</span>
+              <span slot="time">30 minutes</span>
+            </recipe-card>
+          </a>
+        </div> -->
+      <item-list></item-list>
     </article>
+    <script>
+      const items = [
+        {
+          name: "Quinoa Salad",
+          image: "/images/quinoa.jpeg",
+          mealType: "Appetizer",
+          time: "30 minutes",
+        },
+        {
+          name: "Spaghetti & Meatballs",
+          image: "/images/meatballs.jpg",
+          mealType: "Entree",
+          time: "1 hour",
+        },
+        {
+          name: "Chicken Soup",
+          image: "/images/chickensoup.jpg",
+          mealType: "Entree",
+          time: "2 hours",
+        },
+      ];
+      document.querySelector("item-list").items = items;
+    </script>
+  </body>
 </html>

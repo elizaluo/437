@@ -7,7 +7,9 @@
     --color-background-control: #e8604d;
     --color-foreground-control: #1A2335;
     --color-border-control: white;
-    --time-transition-control: #F0E2CE;
+    --time-transition-control: black;
+    --white-black: white;
+    --card-background: #F0E2CE30;
   }
 
   body.light-mode {
@@ -19,4 +21,6 @@
     --color-background-control: #F0E2CE;
     --color-border-control: #e8604d;
     --time-transition-control: #e8604d;
+    --white-black: #1A2335;
+    --card-background: #FFFFFF80;
   }
