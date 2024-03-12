@@ -58,9 +58,11 @@ a {
   }
 
 h1 {
+  color: var(--darker-accent-color);
   align-self: center;
   line-height: 0;
 }
+
 
 h2 {
   color: var(--primary-color);
@@ -88,8 +90,10 @@ td {
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+  object-fit: cover;
+  max-width: 20em;
+  height: 15em;
+  border-radius: 8px;
 }
 
 svg.icon {
@@ -106,6 +110,7 @@ span.profile {
 }
 
 nav {
+  color: var(--darker-accent-color);
   flex-basis: 30%;
 }
 

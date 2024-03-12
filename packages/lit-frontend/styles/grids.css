@@ -4,9 +4,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px; 
-    overflow: hidden;
-    grid-gap: 1rem;
+    grid-gap: 2rem;
     padding: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
 }
 
 .grid-item {

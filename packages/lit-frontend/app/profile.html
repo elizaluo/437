@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles/reset.css" />
+        <link rel="stylesheet" href="/styles/page.css" />
+        <link rel="stylesheet" href="/styles/tokens.css" />
+        <link rel="stylesheet" href="/styles/inputs.css" />
+        <script type="module" src="/src/drop-down.ts"></script>
+        <script type="module" src="/src/user-panel.ts"></script>
+        <script type="module" src="/src/toggle-switch.ts"></script>
+      </head>
+<body>
+<article>
+    <header>
+        <nav><a href="index.html">Home</a> > Pantry</nav>
+        <h1>My Profile</h1>
+        <span class="profile">
+          <!-- <svg class="icon" style="fill: #e8604d; height: 1.5em; width: 1.5em">
+            <use href="/icons/shopping.svg#icon-profile" />
+          </svg> -->
+          <drop-down align="right">
+            <svg
+              class="icon"
+              style="fill: var(--darker-accent-color); height: 1.5em; width: 1.5em"
+            >
+              <use href="/icons/shopping.svg#icon-profile" />
+            </svg>
+            <user-panel slot="menu">
+              <span slot="name">Eliza Luo</span>
+            </user-panel>
+          </drop-down>
+        </span>
+      </header>
+      
+</article>
+</body>
+<section class="account">
+    <h2>Account Information</h2>
+    <div class="account-details">
+        <div class="account-field">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="eliza_luo" disabled />
+        </div>
+        <div class="account-field">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="eliza@example.com" disabled />
+        </div>
+        <div class="account-field">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" value="********" disabled />
+        </div>
+    </div>
+    <button>Edit Account</button>
+</section>
+</html>

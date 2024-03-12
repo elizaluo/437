@@ -1,34 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/page.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <script type="module" src="/src/drop-down.ts"></script>
+    <script type="module" src="/src/user-panel.ts"></script>
+    <script type="module" src="/src/toggle-switch.ts"></script>
   </head>
   <body>
     <article>
-        <header>
-          <h1>
-            <svg class="icon" style="fill:#E8604D; vertical-align:middle; padding-bottom:10px; padding-right: 15px">
-              <use href="/icons/shopping.svg#icon-logo" />
-            </svg>
-            MY KITCHEN
-          </h1>
-          <span class="profile"><svg class="icon" style="fill:#E8604D; height: 1.5em; width: 1.5em">
+      <header>
+        <h1>
+          <svg
+            class="icon"
+            style="
+              fill: var(--darker-accent-color);
+              vertical-align: middle;
+              padding-bottom: 10px;
+              padding-right: 15px;
+              width: 2em;
+              height: 2em;
+            "
+          >
+            <use href="/icons/shopping.svg#icon-logo" />
+          </svg>
+          MY KITCHEN
+        </h1>
+        <span class="profile">
+          <!-- <svg class="icon" style="fill: #e8604d; height: 1.5em; width: 1.5em">
             <use href="/icons/shopping.svg#icon-profile" />
-          </svg></span>
-        </header>
-        <section class="main-nav">
-          <d1>
-            <dt><h2>Recipe Book</h2></dt>
-            <dd><h3><a href="recipes.html">Recipes</a></h3></dd>
-          </d1>
-          <d1>
-            <dt><h2>Groceries</h2></dt>
-            <dd><h3><a href="fridge.html">Fridge</a></h3></dd>
-            <dd><h3><a href="pantry.html">Pantry</a></h3></dd>
-            <dd><h3><a href="groceries.html">Shopping List</a></h3></dd>
-          </d1>
-        </section>
+          </svg> -->
+          <drop-down align="right">
+            <svg
+              class="icon"
+              style="fill: var(--darker-accent-color); height: 1.5em; width: 1.5em"
+            >
+              <use href="/icons/shopping.svg#icon-profile" />
+            </svg>
+            <user-panel slot="menu">
+              <span slot="name">Eliza Luo</span>
+            </user-panel>
+          </drop-down>
+        </span>
+      </header>
+      <section class="main-nav">
+        <d1>
+          <dt><h2>Recipe Book</h2></dt>
+          <dd>
+            <h3><a href="recipes.html">Recipes</a></h3>
+          </dd>
+        </d1>
+        <d1>
+          <dt><h2>Groceries</h2></dt>
+          <dd>
+            <h3><a href="fridge.html">Fridge</a></h3>
+          </dd>
+          <dd>
+            <h3><a href="pantry.html">Pantry</a></h3>
+          </dd>
+          <dd>
+            <h3><a href="groceries.html">Shopping List</a></h3>
+          </dd>
+        </d1>
+      </section>
     </article>
   </body>
 </html>
