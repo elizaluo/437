@@ -50,11 +50,11 @@ export class PresetButtonsElement extends LitElement {
     span.switches {
       display: flex;
       justify-content: stretch;
-      border-radius: var(--size-corner-medium);
-      border: var(--line-weight-fine) solid var(--color-accent);
+      border-radius: 8px;
+      border: 1px solid white;
       overflow: hidden;
       align-item: end;
-      margin: var(--size-spacing-small) 0;
+      margin: 5px 0;
     }
     label {
       display: inline-block;

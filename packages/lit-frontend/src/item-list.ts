@@ -3,16 +3,16 @@ import { customElement, property } from "lit/decorators.js";
 import "./recipe-card";
 
 @customElement("item-list")
-class ItemList extends LitElement {
+export class ItemList extends LitElement {
   @property({ type: Array })
-  items = [];
+  items = [] as any[];
 
   sortAlphabetically() {
     this.items.sort((a, b) => a.name.localeCompare(b.name));
     this.requestUpdate();
   }
 
-  renderRecipe(item) {
+  renderRecipe(item: any) {
     return html`
       <div class="grid-item">
         <a href="sample_recipe.html">
