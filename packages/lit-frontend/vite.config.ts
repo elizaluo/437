@@ -8,7 +8,7 @@ export default defineConfig({
         outDir: 'dist',
         rollupOptions: {
             input: {
-                main: 'index.html',
+                main: 'app/index.html',
                 sample_ingredient: 'app/sample_ingredient.html',
                 sample_supermarket: 'app/sample_supermarket.html',
                 fridge: 'app/fridge.html',
