@@ -4,9 +4,12 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/page.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/grids.css" />
     <script type="module" src="/src/drop-down.ts"></script>
     <script type="module" src="/src/user-panel.ts"></script>
     <script type="module" src="/src/toggle-switch.ts"></script>
+    <script type="module" src="/src/ingredient-list.ts"></script>
+    <script type="module" src="/src/ingredient-card.ts"></script>
   </head>
   <body>
     <article>
@@ -20,7 +23,11 @@
           <drop-down align="right">
             <svg
               class="icon"
-              style="fill: var(--darker-accent-color); height: 1.5em; width: 1.5em"
+              style="
+                fill: var(--darker-accent-color);
+                height: 1.5em;
+                width: 1.5em;
+              "
             >
               <use href="/icons/shopping.svg#icon-profile" />
             </svg>
@@ -30,22 +37,27 @@
           </drop-down>
         </span>
       </header>
-      <section>
-        <ul>
-          <li>
-            <a href="sample_ingredient.html">Ingredient X</a> - Expiration Date:
-            January 31, 2024
-          </li>
-          <li>
-            <a href="sample_ingredient.html">Ingredient Y</a> - Expiration Date:
-            February 15, 2024
-          </li>
-          <li>
-            <a href="sample_ingredient.html">Ingredient Z</a> - Expiration Date:
-            March 5, 2024
-          </li>
-        </ul>
-      </section>
+      <ingredient-list></ingredient-list>
     </article>
+    <script>
+      const items = [
+        {
+          name: "Green Onions",
+          image: "/images/greenonions.png",
+          date: "January 31, 2024",
+        },
+        {
+          name: "Tomatoes",
+          image: "/images/tomatoes.png",
+          date: "January 31, 2024",
+        },
+        {
+          name: "Shallots",
+          image: "/images/shallots.png",
+          date: "January 31, 2024",
+        },
+      ];
+      document.querySelector("ingredient-list").items = items;
+    </script>
   </body>
 </html>

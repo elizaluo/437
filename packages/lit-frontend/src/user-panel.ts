@@ -24,7 +24,7 @@ export class UserPanelElement extends LitElement {
             Light Mode
           </toggle-switch>
         </li>
-        <li>
+        <!-- <li>
           <preset-buttons
             name="font-size"
             .options=${[12, 14, 16, 20, 24]}
@@ -32,7 +32,7 @@ export class UserPanelElement extends LitElement {
             @change=${this._selectFontSize}>
             Font Size
           </preset-buttons>
-        </li>
+        </li> -->
         <slot></slot>
         <li><span slot="settings">Settings</span></li>
         <li>

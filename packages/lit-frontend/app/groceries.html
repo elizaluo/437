@@ -4,9 +4,12 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/page.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/grids.css" />
     <script type="module" src="/src/drop-down.ts"></script>
     <script type="module" src="/src/user-panel.ts"></script>
     <script type="module" src="/src/toggle-switch.ts"></script>
+    <script type="module" src="/src/shopping-list.ts"></script>
+    <script type="module" src="/src/shopping-card.ts"></script>
   </head>
   <body>
     <article>
@@ -31,54 +34,28 @@
         </span>
       </header>
       <section class="checklist">
-        <div>
-          <input type="checkbox" id="ingredientX" />
-          <label for="ingredientX">
-            <a href="sample_ingredient.html">Ingredient X</a> -
-            <a href="sample_supermarket.html" class="italics">
-              <svg
-                class="icon"
-                style="width: 1em; height: 1em; vertical-align: top"
-              >
-                <use href="/icons/shopping.svg#icon-cart" />
-              </svg>
-              Supermarket A
-            </a>
-          </label>
-        </div>
-
-        <div>
-          <input type="checkbox" id="ingredientY" />
-          <label for="ingredientY">
-            <a href="sample_ingredient.html">Ingredient Y</a> -
-            <a href="sample_supermarket.html" class="italics">
-              <svg
-                class="icon"
-                style="width: 1em; height: 1em; vertical-align: top"
-              >
-                <use href="/icons/shopping.svg#icon-cart" />
-              </svg>
-              Supermarket B
-            </a>
-          </label>
-        </div>
-
-        <div>
-          <input type="checkbox" id="ingredientZ" />
-          <label for="ingredientZ">
-            <a href="sample_ingredient.html">Ingredient Z</a> -
-            <a href="sample_supermarket.html" class="italics">
-              <svg
-                class="icon"
-                style="width: 1em; height: 1em; vertical-align: top"
-              >
-                <use href="/icons/shopping.svg#icon-cart" />
-              </svg>
-              Supermarket C
-            </a>
-          </label>
-        </div>
+        <shopping-list></shopping-list>
       </section>
     </article>
+    <script>
+      const items = [
+        {
+          name: "Green Onions",
+          image: "/images/greenonions.png",
+          supermarket: "Ralphs",
+        },
+        {
+          name: "Tomatoes",
+          image: "/images/tomatoes.png",
+          supermarket: "Ralphs",
+        },
+        {
+          name: "Shallots",
+          image: "/images/shallots.png",
+          supermarket: "Ralphs",
+        },
+      ];
+      document.querySelector("shopping-list").items = items;
+    </script>
   </body>
 </html>

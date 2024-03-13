@@ -4,9 +4,12 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/page.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/grids.css" />
     <script type="module" src="/src/drop-down.ts"></script>
     <script type="module" src="/src/user-panel.ts"></script>
     <script type="module" src="/src/toggle-switch.ts"></script>
+    <script type="module" src="/src/pantry-list.ts"></script>
+    <script type="module" src="/src/pantry-card.ts"></script>
   </head>
   <body>
     <article>
@@ -20,7 +23,11 @@
           <drop-down align="right">
             <svg
               class="icon"
-              style="fill: var(--darker-accent-color); height: 1.5em; width: 1.5em"
+              style="
+                fill: var(--darker-accent-color);
+                height: 1.5em;
+                width: 1.5em;
+              "
             >
               <use href="/icons/shopping.svg#icon-profile" />
             </svg>
@@ -31,21 +38,28 @@
         </span>
       </header>
       <section>
-        <ul>
-          <li>
-            <a href="sample_ingredient.html">Ingredient X</a> - Expiration Date:
-            January 31, 2024
-          </li>
-          <li>
-            <a href="sample_ingredient.html">Ingredient Y</a> - Expiration Date:
-            February 15, 2024
-          </li>
-          <li>
-            <a href="sample_ingredient.html">Ingredient Z</a> - Expiration Date:
-            March 5, 2024
-          </li>
-        </ul>
+        <pantry-list></pantry-list>
       </section>
     </article>
+    <script>
+      const items = [
+        {
+          name: "Honey",
+          image: "/images/honey.png",
+          date: "January 31, 2024",
+        },
+        {
+          name: "Chicken Stock",
+          image: "/images/chickenstock.png",
+          date: "January 31, 2024",
+        },
+        {
+          name: "Soy Sauce",
+          image: "/images/soysauce.png",
+          date: "January 31, 2024",
+        },
+      ];
+      document.querySelector("pantry-list").items = items;
+    </script>
   </body>
 </html>

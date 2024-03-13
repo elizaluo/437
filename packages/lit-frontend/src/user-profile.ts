@@ -42,7 +42,10 @@ export class ViewProfileElement extends LitElement {
     const { userid, name } = this.profile || {};
     return html`
       <section>
-        <h1>${name}'s Account</h1>
+        <div class="profile-header">
+          ${this._renderAvatar()}
+          <h1>${name}'s Account</h1>
+        </div>
         <dl>
           <dt><h2>Name</h2></dt>
           <dd><h3>${name}</h3></dd>
@@ -53,9 +56,25 @@ export class ViewProfileElement extends LitElement {
     `;
   }
 
+  _renderAvatar() {
+    const { name, userid, avatar, color } = (this.profile || {}) as Profile;
+    const avatarImg = avatar
+      ? html`<img id="avatarImg" src="${avatar}" />`
+      : (userid || name || " ").slice(0, 1);
+    const colorStyle = color ? `--avatar-backgroundColor: ${color}` : "";
+
+    return html` <div class="avatar" style=${colorStyle}>${avatarImg}</div>`;
+  }
+
   static styles = css`
+    :host {
+      --avatar-backgroundColor: var(--accent-color);
+      --avatar-size: 50px;
+      padding: 10px;
+    }
     section {
       margin: 2em;
+      margin-top: 0;
     }
     h1 {
       font-size: 32px;
@@ -74,6 +93,30 @@ export class ViewProfileElement extends LitElement {
     dd {
       color: var(--accent-color);
     }
+    .avatar {
+      grid-column: key;
+      grid-row: auto/span 2;
+      justify-self: end;
+      position: relative;
+      width: var(--avatar-size);
+      aspect-ratio: 1;
+      background-color: var(--avatar-backgroundColor);
+      border-radius: 50%;
+      text-align: center;
+      line-height: var(--avatar-size);
+      font-size: calc(0.66 * var(--avatar-size));
+      color: var(--color-link-inverted);
+      overflow: hidden;
+    }
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      margin-bottom: 2em;
+    }
+    .profile-header h1 {
+      margin-left: 20px;
+    }
   `;
 }
 
@@ -86,6 +129,13 @@ export class EditProfileElement extends ViewProfileElement {
       <section>
         <h2>Edit Profile</h2>
         <form @submit=${this._handleSubmit}>
+          <!-- <div class="form-group">
+            <label for="avatar">Avatar</label>
+            <input
+              type="file"
+              name="avatar"
+              @change=${this._handleAvatarSelected}
+            /> -->
           <div class="form-group">
             <label for="userid">Username</label>
             <input name="userid" .value=${userid} disabled />
@@ -126,14 +176,36 @@ export class EditProfileElement extends ViewProfileElement {
     }
   `;
 
+  _handleAvatarSelected(ev: Event) {
+    const target = ev.target as HTMLInputElement;
+    const selectedFile = (target.files as FileList)[0];
+    const reader: Promise<string> = new Promise((resolve, reject) => {
+      const fr = new FileReader();
+      fr.onload = () => resolve(fr.result as string);
+      fr.onerror = (err) => reject(err);
+      fr.readAsDataURL(selectedFile);
+    });
+
+    reader.then((result: string) => {
+      this.profile = {
+        ...(this.profile as Profile),
+        avatar: result,
+      };
+    });
+  }
+
   _handleSubmit(ev: Event) {
     ev.preventDefault(); // prevent browser from submitting form data itself
 
+    const avatar = this.profile?.avatar;
     const target = ev.target as HTMLFormElement;
     const formdata = new FormData(target);
-    const entries = Array.from(formdata.entries()).map(([k, v]) =>
+    let entries = Array.from(formdata.entries()).map(([k, v]) =>
       v === "" ? [k] : [k, v]
     );
+
+    if (avatar) entries.push(["avatar", avatar]);
+
     const json = Object.fromEntries(entries);
     console.log(json);
 

@@ -28,11 +28,9 @@ var import_profiles = __toESM(require("./profiles"));
 const app = (0, import_express.default)();
 const port = process.env.PORT || 3e3;
 app.use((0, import_cors.default)());
-app.use(import_express.default.json());
+app.use(import_express.default.json({ limit: "500kb" }));
 (0, import_mongoConnect.connect)("kitch");
-app.get("/hello", (req, res) => {
-  res.send("Hello, World");
-});
+app.options("*", (0, import_cors.default)());
 app.get("/api/profiles/:userid", (req, res) => {
   const { userid } = req.params;
   import_profiles.default.get(userid).then((profile) => res.json(profile)).catch((err) => res.status(404).end());

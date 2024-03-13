@@ -9,12 +9,11 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: "500kb" }));
 connect("kitch");
 
-app.get("/hello", (req: Request, res: Response) => {
-    res.send("Hello, World");
-});
+app.options("*", cors());
+
 app.get("/api/profiles/:userid", (req: Request, res: Response) => {
   const { userid } = req.params;
 
