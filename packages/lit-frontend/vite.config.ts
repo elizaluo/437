@@ -16,7 +16,7 @@ export default defineConfig({
                 pantry: 'app/pantry.html',
                 recipes: 'app/recipes.html',
                 sample_recipe: 'app/sample_recipe.html',
-                profile: 'app/profile/profile.html',
+                profile: 'app/profile/index.html',
             },
         },
     }
