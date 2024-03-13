@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="module" crossorigin src="/assets/fridge-D7308SvC.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/toggle-switch-BMpZmBsE.js">
+    <link rel="stylesheet" crossorigin href="/assets/toggle-switch-pBlJQ3EF.css">
+    <link rel="stylesheet" crossorigin href="/assets/grids-Bk4pcgJZ.css">
+  </head>
+  <body>
+    <article>
+      <header>
+        <nav><a href="index.html">Home</a> > Fridge</nav>
+        <h1>Fridge</h1>
+        <span class="profile">
+          <!-- <svg class="icon" style="fill: #e8604d; height: 1.5em; width: 1.5em">
+            <use href="/icons/shopping.svg#icon-profile" />
+          </svg> -->
+          <drop-down align="right">
+            <svg
+              class="icon"
+              style="
+                fill: var(--darker-accent-color);
+                height: 1.5em;
+                width: 1.5em;
+              "
+            >
+              <use href="/assets/shopping-BjDfD_Tb.svg#icon-profile" />
+            </svg>
+            <user-panel slot="menu">
+              <span slot="name">Eliza Luo</span>
+            </user-panel>
+          </drop-down>
+        </span>
+      </header>
+      <ingredient-list></ingredient-list>
+    </article>
+    <script>
+      const items = [
+        {
+          name: "Green Onions",
+          image: "/images/greenonions.png",
+          date: "January 31, 2024",
+        },
+        {
+          name: "Tomatoes",
+          image: "/images/tomatoes.png",
+          date: "January 31, 2024",
+        },
+        {
+          name: "Shallots",
+          image: "/images/shallots.png",
+          date: "January 31, 2024",
+        },
+      ];
+      document.querySelector("ingredient-list").items = items;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="module" crossorigin src="/assets/groceries-B5_P1WLG.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/toggle-switch-BMpZmBsE.js">
+    <link rel="stylesheet" crossorigin href="/assets/toggle-switch-pBlJQ3EF.css">
+    <link rel="stylesheet" crossorigin href="/assets/grids-Bk4pcgJZ.css">
+  </head>
+  <body>
+    <article>
+      <header>
+        <nav><a href="index.html">Home</a> > Shopping List</nav>
+        <h1>Shopping List</h1>
+        <span class="profile">
+          <!-- <svg class="icon" style="fill: #e8604d; height: 1.5em; width: 1.5em">
+            <use href="/icons/shopping.svg#icon-profile" />
+          </svg> -->
+          <drop-down align="right">
+            <svg
+              class="icon"
+              style="fill: var(--darker-accent-color); height: 1.5em; width: 1.5em"
+            >
+              <use href="/assets/shopping-BjDfD_Tb.svg#icon-profile" />
+            </svg>
+            <user-panel slot="menu">
+              <span slot="name">Eliza Luo</span>
+            </user-panel>
+          </drop-down>
+        </span>
+      </header>
+      <section class="checklist">
+        <shopping-list></shopping-list>
+      </section>
+    </article>
+    <script>
+      const items = [
+        {
+          name: "Green Onions",
+          image: "/images/greenonions.png",
+          supermarket: "Ralphs",
+        },
+        {
+          name: "Tomatoes",
+          image: "/images/tomatoes.png",
+          supermarket: "Ralphs",
+        },
+        {
+          name: "Shallots",
+          image: "/images/shallots.png",
+          supermarket: "Ralphs",
+        },
+      ];
+      document.querySelector("shopping-list").items = items;
+    </script>
+  </body>
+</html>
